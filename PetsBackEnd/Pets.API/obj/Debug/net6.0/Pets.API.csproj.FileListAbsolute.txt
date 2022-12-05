@@ -81,3 +81,8 @@ C:\Users\ppatel\Desktop\PETS\PetsBackEnd\Pets.API\bin\Debug\net6.0\runtimes\win\
 C:\Users\ppatel\Desktop\PETS\PetsBackEnd\Pets.API\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\ppatel\Desktop\PETS\PetsBackEnd\Pets.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\ppatel\Desktop\PETS\PetsBackEnd\Pets.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\ppatel\Desktop\Pets\PetsBackEnd\Pets.API\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\ppatel\Desktop\Pets\PetsBackEnd\Pets.API\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\ppatel\Desktop\Pets\PetsBackEnd\Pets.API\bin\Debug\net6.0\System.Web.Http.WebHost.dll
+C:\Users\ppatel\Desktop\Pets\PetsBackEnd\Pets.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\ppatel\Desktop\Pets\PetsBackEnd\Pets.API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

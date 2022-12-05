@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ppatel\\Desktop\\PETS\\PetsBackEnd\\Pets.API\\Pets.API.csproj": {}
+    "C:\\Users\\ppatel\\Desktop\\Pets\\PetsBackEnd\\Pets.API\\Pets.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ppatel\\Desktop\\PETS\\PetsBackEnd\\Pets.API\\Pets.API.csproj": {
+    "C:\\Users\\ppatel\\Desktop\\Pets\\PetsBackEnd\\Pets.API\\Pets.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ppatel\\Desktop\\PETS\\PetsBackEnd\\Pets.API\\Pets.API.csproj",
+        "projectUniqueName": "C:\\Users\\ppatel\\Desktop\\Pets\\PetsBackEnd\\Pets.API\\Pets.API.csproj",
         "projectName": "Pets.API",
-        "projectPath": "C:\\Users\\ppatel\\Desktop\\PETS\\PetsBackEnd\\Pets.API\\Pets.API.csproj",
+        "projectPath": "C:\\Users\\ppatel\\Desktop\\Pets\\PetsBackEnd\\Pets.API\\Pets.API.csproj",
         "packagesPath": "C:\\Users\\ppatel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ppatel\\Desktop\\PETS\\PetsBackEnd\\Pets.API\\obj\\",
+        "outputPath": "C:\\Users\\ppatel\\Desktop\\Pets\\PetsBackEnd\\Pets.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ppatel\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,6 +38,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNet.WebApi": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
