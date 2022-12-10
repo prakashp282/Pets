@@ -55,8 +55,10 @@ startButton.addEventListener('click', function(){
 
 resetButton.addEventListener('click', resetGame)
 
+//Intrations are mapped here. 
 cleanButton.addEventListener('click', function(){
   if(petAlive){
+    // health depends on happiness and hunger and would update as a factor of both.
     health = limitVariables(health + (5 - ( Math.floor((100 - happiness) * 0.02) + Math.floor(hunger * 0.02) + 2)));
     updatePogress();
   }
@@ -65,6 +67,7 @@ cleanButton.addEventListener('click', function(){
 playButton.addEventListener('click', function(){
   if(petAlive){
     health = limitVariables(health + ( 5 - ( Math.floor((100 - happiness) * 0.04) + Math.floor(hunger * 0.04) + 1)));
+    // hapiness is dependent on hunger and pets hungeier the happiness interation becomes less effective.
     happiness = limitVariables(happiness + ( 5 - (Math.floor(hunger * 0.05) + 1)));
     updatePogress();
   }
@@ -96,26 +99,24 @@ async function fetchEvent(){
     else {
       console.log ('Request Successfull :', data);
       nextEventTime = data.NextEvent;
+      //fetch the data from even api and update the stats accordingly.
       health = limitVariables(health + data.Impact.Health);
       hunger = limitVariables(hunger + data.Impact.Hunger);
       happiness = limitVariables(happiness + data.Impact.Happiness);
       updatePogress();
       showEvent(data);
+      //if health becomes 0 the pet dies.
+        if(health <= 0 ) {
+          death();
+        }
       setTimeout(fetchEvent, nextEventTime *dayDuration * 1000);
     }
   });
 
 }
 
-
+//Each day age and other factors should update.
 async function dayUpdate(){
-  if(health <= 0 ) {
-    petAlive = false;
-    characterContainer.style.display = "none";
-    interactionsContainer.style.display = "none";
-    EndMessageText.style.display = "block";
-  }
-
   if(!petAlive){
     return;
   }
@@ -125,29 +126,36 @@ async function dayUpdate(){
   //advnace logic assumption - 
   // health per day can decrease between 1-5 : depending on happiness and hunger.
   // if happ and not hunger - 1 , then increase 1 each time it drops by 20 percent.
-
-  //happiness depends on hunger
-
-
-  //hunger depends on happiness
-
   health = limitVariables(health -( Math.floor((100 - happiness) * 0.04) + Math.floor(hunger * 0.04) + 1));
+  //hunger depends on happiness
   hunger = limitVariables(hunger + (Math.floor((100 - happiness) * 0.05) + 1 ));
+  //RANDOM 1-5 was removed from here on purpose.
   //reduction between 1 - 5 - if hunger is less than 20 reduce 1, less than 40 reduce 2, and so increase 1 in sets of 20
   happiness = limitVariables(happiness - (Math.floor(hunger * 0.05) + 1));
   ageText.innerHTML =age;
   updatePogress(); 
-
+  //if health becomes 0 the pet dies.
+  if(health <= 0 ) {
+    death();
+  }
   setTimeout(dayUpdate,  dayDuration * 1000);
 }
 
+function death(){
+  petAlive = false;
+  characterContainer.style.display = "none";
+  interactionsContainer.style.display = "none";
+  EndMessageText.style.display = "block";
+}
 
+//We need to reset the game as soon as we press the reset button
 function resetGame(){
 
   //clearing Input fields
   document.querySelector('#inputSpeedControl').value = "";
   document.querySelector('#inputName').value = "";
 
+  //the values are set to default.
   petAlive = false;
   age = 0;
   happiness = 100;
@@ -157,6 +165,7 @@ function resetGame(){
   startUpContainer.style.display = "flex";
 }
 
+//the banner is made visible when we hit the fetch event api.
 function showEvent(data){
   eventContainer.style.display = "flex";
 
@@ -166,6 +175,8 @@ function showEvent(data){
   setTimeout(function(){eventContainer.style.display = "none";},   3 * 1000);
 }
 
+
+//at any given time the values can only be in range of 0 to 100 this function checks and ensures that.
 function limitVariables(data){
   if (data >= 0 && data <= 100)
 	    return data;
@@ -176,6 +187,7 @@ function limitVariables(data){
 
 }
 
+// we update the progress bar for all there fators.
 function updatePogress() {
   updatePogressbar('Health', health);
   updatePogressbar('Hunger', hunger);
