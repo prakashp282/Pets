@@ -87,7 +87,7 @@ async function fetchEvent(){
     return;
   }
 
-  fetch('https://pets-back-end.vercel.app/event').then(data => data.json()).then(function(data){
+  fetch('https://pets-beta.vercel.app/event').then(data => data.json()).then(function(data){
     if(data.type === 'Error'){
       //Somehow the request failed so we ignore it and wait till next event time.
       console.log('Request Failed', data);
